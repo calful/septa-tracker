@@ -1,4 +1,4 @@
-package com.example.septa_tracker;
+package com.calful.septatracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

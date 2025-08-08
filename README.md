@@ -45,6 +45,10 @@ This service ingests real-time vehicle positions and trip updates from SEPTA’s
 - Public/open API or require authentication?
 - How to handle error/retry logic for upstream feed failures?
 
+## Future Feature Ideas
+- Tracker Map/Board
+- "How much time do I have to leave?" meter
+
 ## References
 
 - [SEPTA GTFS-Realtime Documentation](http://www3.septa.org/developer/)
