@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SeptaTrackerApplication<septa-tracker>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.calful.septatracker.SeptaTrackerApplication",
+            "projectName": "septa-tracker",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
