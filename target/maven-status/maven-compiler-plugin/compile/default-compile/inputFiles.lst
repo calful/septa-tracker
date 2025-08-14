@@ -1,2 +1,7 @@
+/Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/GtfsPollingService.java
+/Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/GtfsRealtimeClient.java
 /Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/HelloController.java
 /Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/SeptaTrackerApplication.java
+/Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/Vehicle.java
+/Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/VehicleCacheService.java
+/Users/calful/projects/septa-tracker/src/main/java/com/calful/septatracker/VehiclesController.java

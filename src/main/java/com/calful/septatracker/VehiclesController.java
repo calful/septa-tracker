@@ -5,11 +5,15 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class VehiclesController {
 
     private final VehicleCacheService cache;
+
     public VehiclesController(VehicleCacheService cache) {
         this.cache = cache;
     }
@@ -33,4 +37,20 @@ public class VehiclesController {
     public List<Vehicle> vehicles(@RequestParam String route) {
         return cache.getVehicles(route).orElse(List.of());
     }
+
+    // Simple DTO for /routes response
+    public record RouteSummary(String routeId, int vehicles, Long ttlSeconds) {}
+
+    @GetMapping("/routes")
+    public List<RouteSummary> routes() {
+        return cache.listRouteIds().stream()
+                .map(r -> new RouteSummary(
+                        r,
+                        cache.countVehiclesForRoute(r),
+                        cache.ttlSecondsForRoute(r)
+                ))
+                .toList();
+    }
+    
+
 }
