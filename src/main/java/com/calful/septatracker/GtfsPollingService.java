@@ -18,6 +18,10 @@ public class GtfsPollingService {
     private final VehicleCacheService cache;
     private final Duration ttl;
 
+    private volatile long lastPollEpochSec = 0;
+    private volatile int lastEntityCount = 0;
+    private volatile int lastRouteCount = 0;
+
     private static final Logger log = LoggerFactory.getLogger(GtfsPollingService.class);
 
     public GtfsPollingService(GtfsRealtimeClient client,
@@ -60,10 +64,24 @@ public class GtfsPollingService {
                 cache.putVehicles(route, vehicles, ttl);
             });
             
+            lastPollEpochSec = System.currentTimeMillis() / 1000;
+            lastEntityCount = feed.getEntityCount();
+            lastRouteCount = byRoute.size();
+
             log.info("GTFS poll completed successfully");
         } catch (Exception e) {
             log.error("Error during GTFS poll", e);
         }
+    }
+
+    public long getLastPollEpochSec() {
+        return lastPollEpochSec;
+    }
+    public int getLastEntityCount() {
+        return lastEntityCount;    
+    }
+    public int getLastRouteCount() {
+        return lastRouteCount;
     }
 
 }
